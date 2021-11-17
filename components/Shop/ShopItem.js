@@ -1,19 +1,19 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { HStack, Image, Pressable } from "native-base";
+import { Pressable, Text } from "react-native";
+import { HStack, Image } from "native-base";
+import { baseURL } from "../../stores/instance";
 
 const ShopItem = ({ shop, navigation }) => {
   return (
     <Pressable
       onPress={() => {
-        navigation.navigate("ShopDetail");
-        console.log("clcik");
+        navigation.navigate("ShopDetail", { shop: shop });
       }}
     >
       <HStack w="100%" alignItems="center" space="3">
         <Image
           source={{
-            uri: shop.image,
+            uri: baseURL + shop.image,
           }}
           alt="image"
           style={{ width: 100, height: 100 }}
@@ -23,6 +23,5 @@ const ShopItem = ({ shop, navigation }) => {
     </Pressable>
   );
 };
-export default ShopItem;
 
-const styles = StyleSheet.create({});
+export default ShopItem;
