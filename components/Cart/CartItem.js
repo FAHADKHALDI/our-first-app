@@ -1,6 +1,10 @@
-import React from "react";
-import { Image, Text } from "react-native";
-import { HStack } from "native-base";
+import React, { useState } from "react";
+import { Text } from "react-native";
+import { Button, HStack, Image, VStack } from "native-base";
+import { baseURL } from "../../stores/instance";
+import NumericInput from "react-native-numeric-input";
+import cartStore from "../../stores/cartStore";
+import { observer } from "mobx-react";
 
 const CartItem = ({ item }) => {
   const [quantity, setQuantity] = useState(item.quantity);
@@ -14,19 +18,21 @@ const CartItem = ({ item }) => {
     cartStore.removeItemFromCart(item.product._id);
   };
 
-  const product = item.product;
   return (
     <HStack w="100%" alignItems="center" space="3">
       <Image
         source={{
-          uri: product.image,
+          uri: baseURL + item.product.image,
         }}
         alt="image"
         style={{ width: 100, height: 100 }}
       />
-      <Text>{product.name}</Text>
-      <Text>quantity: {item.quantity}</Text>
-      <Text>total: {item.quantity * product.price} KD</Text>
+      <VStack>
+        <Text bold>{item.product.name}:</Text>
+        <Text>{item.quantity} </Text>
+        <Text bold>Total Price:</Text>
+        <Text>{item.quantity * item.product.price} KD</Text>
+      </VStack>
       <VStack>
         <NumericInput
           totalWidth={80}
