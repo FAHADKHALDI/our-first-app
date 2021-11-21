@@ -1,10 +1,12 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../Home/index";
-import ShopList from "../Shop/ShopList";
-import ShopDetail from "../Shop/ShopDetail";
-import CartList from "../CartList";
-import CartButton from "../buttons/CartButton";
+import Home from "../Home";
+import ShopList from "../Shop";
+import ShopDetail from "../ShopDetail";
+import CartList from "../Cart";
+import CartIcon from "../Icons/Cart";
+import Signin from "../Authentication/Signin";
+import Signup from "../Authentication/Signup";
 
 const RootNavigator = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -15,31 +17,30 @@ const RootNavigator = () => {
         component={Home}
         options={{
           headerStyle: {
-            backgroundColor: "#1784b2",
+            backgroundColor: "#50bfc3",
           },
         }}
       />
       <Screen
         name="ShopList"
         component={ShopList}
-        options={{
+        options={({ navigation }) => ({
           headerStyle: {
             backgroundColor: "#1784b2",
           },
-          headerRight: () => <CartButton />,
-        }}
+          headerRight: () => <CartIcon navigation={navigation} />,
+        })}
       />
       <Screen
         name="ShopDetail"
         component={ShopDetail}
         options={({ navigation, route }) => {
-          const { shop } = route.params;
           return {
             headerStyle: {
-              backgroundColor: "#1784b2",
+              backgroundColor: "#356290",
             },
-            headerRight: () => <CartButton navigation={navigation} />,
-            title: shop.name,
+            title: route.params.shop.name,
+            headerRight: () => <CartIcon navigation={navigation} />,
           };
         }}
       />
@@ -48,11 +49,12 @@ const RootNavigator = () => {
         component={CartList}
         options={{
           headerStyle: {
-            backgroundColor: "#1784b2",
+            backgroundColor: "white",
           },
-          headerRight: () => <CartButton />,
         }}
       />
+      <Screen name="Signin" component={Signin} />
+      <Screen name="Signup" component={Signup} />
     </Navigator>
   );
 };

@@ -4,7 +4,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import shopStore from "../../stores/shopStore";
 import { baseURL } from "../../stores/instance";
-import ProductList from "../ProductList";
+import ProductList from "../../components/ProductList";
 
 const ShopDetail = ({ route }) => {
   const { shop } = route.params;
@@ -18,6 +18,7 @@ const ShopDetail = ({ route }) => {
       <Image
         style={styles.shopDetailImage}
         source={{ uri: baseURL + shop.image }}
+        alt="image"
       />
       <Text style={styles.shopDetailTitle}>{shop.name}</Text>
       <ProductList products={shop.products} />
