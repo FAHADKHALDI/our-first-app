@@ -48,7 +48,7 @@ const Signup = ({ navigation }) => {
           fontWeight="medium"
           size="xs"
         >
-          Welcome to the One Stop Shop!
+          Welcome to the React Native Shop!
         </Heading>
 
         <VStack space={3} mt="5">
@@ -96,13 +96,3 @@ const Signup = ({ navigation }) => {
 };
 
 export default Signup;
-
-// export default () => {
-//   return (
-//     <NativeBaseProvider>
-//
-//         <Example />
-//       </Center>
-//     </NativeBaseProvider>
-//   );
-// };

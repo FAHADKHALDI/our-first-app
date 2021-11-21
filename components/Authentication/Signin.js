@@ -37,7 +37,7 @@ const Signin = ({ navigation }) => {
             color: "warmGray.50",
           }}
         >
-          Sign-in!
+          Sign in!
         </Heading>
         <Heading
           mt="1"
@@ -48,7 +48,7 @@ const Signin = ({ navigation }) => {
           fontWeight="medium"
           size="xs"
         >
-          Login to checkout
+          Sign in to checkout.
         </Heading>
 
         <VStack space={3} mt="5">

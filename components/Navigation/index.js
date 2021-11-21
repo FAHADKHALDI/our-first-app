@@ -26,7 +26,7 @@ const RootNavigator = () => {
         component={ShopList}
         options={({ navigation }) => ({
           headerStyle: {
-            backgroundColor: "#1784b2",
+            backgroundColor: "#50bfc3",
           },
           headerRight: () => <CartIcon navigation={navigation} />,
         })}
@@ -37,7 +37,7 @@ const RootNavigator = () => {
         options={({ navigation, route }) => {
           return {
             headerStyle: {
-              backgroundColor: "#356290",
+              backgroundColor: "#50bfc3",
             },
             title: route.params.shop.name,
             headerRight: () => <CartIcon navigation={navigation} />,
@@ -49,7 +49,7 @@ const RootNavigator = () => {
         component={CartList}
         options={{
           headerStyle: {
-            backgroundColor: "white",
+            backgroundColor: "#50bfc3",
           },
         }}
       />
